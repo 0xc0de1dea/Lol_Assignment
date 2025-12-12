@@ -12,10 +12,15 @@ import java.util.concurrent.TimeUnit;
 
 public class Main {
     public static void main(String[] args) {
-        Champion garen = new Garen("가렌", 1, 690 ,69, 0, 98, 0.625, (long)(1000 / 0.625), 5, 0.1, 0, 30, 8000, 30, 1000, 0, 0);
-        Champion annie = new Annie("애니", 1, 560, 50, 50, 96, 0.61, (long)(1000 / 0.61), 3, 0.1, 0, 80, 4000, 40, 1000, 0, 0);
-        Champion lux = new Lux("럭스", 1, 580, 54, 50, 99, 0.625, (long)(1000 / 0.625), 4, 0.1, 0, 80, 9000, 40, 1000, 0, 0);
-        Champion teemo = new Teemo("티모", 1, 615, 54, 50, 104, 0.69, (long)(1000 / 0.69), 3, 0.1, 0, 80, 7000, 45, 1000, 0, 0);
+//        Champion garen = new Garen("가렌", 1, 690 ,69, 0, 98, 0.625, (long)(1000 / 0.625), 5, 0.1, 0, 30, 8000, 30, 1000, 0, 0);
+//        Champion annie = new Annie("애니", 1, 560, 50, 50, 96, 0.61, (long)(1000 / 0.61), 3, 0.1, 0, 80, 4000, 40, 1000, 0, 0);
+//        Champion lux = new Lux("럭스", 1, 580, 54, 50, 99, 0.625, (long)(1000 / 0.625), 4, 0.1, 0, 80, 9000, 40, 1000, 0, 0);
+//        Champion teemo = new Teemo("티모", 1, 615, 54, 50, 104, 0.69, (long)(1000 / 0.69), 3, 0.1, 0, 80, 7000, 45, 1000, 0, 0);
+
+        Champion garen = new Garen();
+        Champion annie = new Annie();
+        Champion lux = new Lux();
+        Champion teemo = new Teemo();
 
         ArrayList<Champion> champions = new ArrayList<>();
         champions.add(garen);
@@ -57,6 +62,7 @@ public class Main {
 
         System.out.println("=================== 시뮬레이션 종료 ==================");
         System.out.println("승자 : " + (vs.get(0).getHp() <= 0 ? vs.get(1).getName() : vs.get(0).getName()));
+        System.out.println("배틀 횟수 : " + Champion.getBattleCount());
         return;
     }
 }

@@ -24,6 +24,8 @@ public abstract class Champion {
     private long atkCCTimer;
     private long skillCCTimer;
 
+    private static int battleCount = 0;
+
     public Champion(String name, int level, int hp, int ad, int ap, int hpInc, double atkSpeed, long atkCoolTime, int atkInc, double atkSpeedInc, double critical, int qDmg, double qCoolTime, int qInc, double skillDelay, double atkCCCoolTime, double skillCCCoolTime) {
         this.name = name;
         this.level = level;
@@ -221,6 +223,14 @@ public abstract class Champion {
         this.skillCCTimer = skillCCTimer;
     }
 
+    public static int getBattleCount() {
+        return battleCount;
+    }
+
+    public static void setBattleCount() {
+        Champion.battleCount++;
+    }
+
     public void takeSkillCC(long time){
         this.skillCCCoolTime = time;
         this.skillCCTimer = System.currentTimeMillis();
@@ -238,6 +248,7 @@ public abstract class Champion {
         now - getAtkTimer() >= getAtkCoolTime()){
             trg.takeDamage(ad);
             setAtkTimer(System.currentTimeMillis());
+            setBattleCount();
         }
     }
 
