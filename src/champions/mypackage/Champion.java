@@ -252,5 +252,9 @@ public abstract class Champion {
         }
     }
 
+    public final void resurrect(){
+        setHp(1);
+    }
+
     public abstract void useQ(Champion trg);
 }
