@@ -1,6 +1,20 @@
 package champions.mypackage;
 
+import java.util.ArrayList;
+
 public abstract class Champion {
+    public class Log {
+        static StringBuilder sb = new StringBuilder();
+
+        public static void setLog(String s){
+            sb.append(s).append("\n");
+        }
+
+        public static String getLog(){
+            return sb.toString();
+        }
+    }
+
     private String name;
     private int level;
     private int hp;
@@ -179,7 +193,9 @@ public abstract class Champion {
 
         if (this.hp <= 0) this.hp = 0;
 
+        Champion.Log.setLog(name + " 이(가) " + dmg + " 만큼의 데미지를 입음.");
         System.out.println(name + " 이(가) " + dmg + " 만큼의 데미지를 입음.");
+        Champion.Log.setLog(name + " 의 현재 체력 : " + this.hp);
         System.out.println(name + " 의 현재 체력 : " + this.hp);
     }
 
